@@ -35,4 +35,7 @@ def login_page(request):
 	return render(request, "auth/login.html", {})
 
 def register_page(request):
+	form = LoginForm(request.POST or None)
+	if form is_valid():
+		print(form.cleaned_data)
 	return render(request, "auth/register.html", {})
