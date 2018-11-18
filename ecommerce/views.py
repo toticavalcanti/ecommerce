@@ -30,13 +30,13 @@ def contact_page(request):
 
 def login_page(request):
 	form = LoginForm(request.POST or None)
-	print(request.user.is_authenticated())
+	print(request.user.is_authenticated)
 	if form.is_valid():
 		print(form.cleaned_data)
 	return render(request, "auth/login.html", {})
 
 def register_page(request):
 	form = LoginForm(request.POST or None)
-	if form is_valid():
+	if form.is_valid():
 		print(form.cleaned_data)
 	return render(request, "auth/register.html", {})
