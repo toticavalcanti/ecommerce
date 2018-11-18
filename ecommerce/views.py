@@ -18,11 +18,13 @@ def about_page(request):
 	return render(request, "about/view.html", context)
 
 def contact_page(request):
-	contact_form = ContactForm()
+	contact_form = ContactForm(request.POST or None)
 	context = {
 				"title": "Contact Page",
 				"content": "Bem vindo a Contact Page",
-				"form": contact_form
+				"form": contact_form	
 			  }
+	if contact_form.is_valid():
+		print(contact_form.cleaned_data)
 	return render(request, "contact/view.html", context)
 
