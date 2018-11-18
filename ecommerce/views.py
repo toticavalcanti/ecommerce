@@ -18,9 +18,11 @@ def about_page(request):
 	return render(request, "about/view.html", context)
 
 def contact_page(request):
+	contact_form = ContactForm()
 	context = {
 				"title": "Contact Page",
-				"content": "Bem vindo a Contact Page"
+				"content": "Bem vindo a Contact Page",
+				"form": contact_form
 			  }
 	return render(request, "contact/view.html", context)
 
