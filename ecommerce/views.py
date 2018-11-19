@@ -35,22 +35,24 @@ def login_page(request):
 		"form": form
 	}
 	print("User logged in")
-	print(request.user.is_authenticated)
+	#print(request.user.is_authenticated)
 	if form.is_valid():
 		print(form.cleaned_data)
 		username = form.cleaned_data.get("username")
 		password = form.cleaned_data.get("password")
 		user = authenticate(request, username=username, password=password) 
-		print(request.user.is_authenticated)
+		print(user)
+		#print(request.user.is_authenticated)
 		if user is not None:
-			print(request.user.is_authenticated)
+			#print(request.user.is_authenticated)
 			login(request, user)
+			print("Login válido")
         	# Redirect to a success page.
 			#context['form'] = LoginForm()
 			return redirect("/login")
 		else:
         	# Return an 'invalid login' error message.
-			print("Error")
+			print("Login inválido")
 	return render(request, "auth/login.html", context)
 
 def register_page(request):
