@@ -48,3 +48,4 @@ class RegisterForm(forms.Form):
         password2 = self.cleaned_data.get('password2')
         if password != password2:
             raise forms.ValidationError("As senhas informadas devem ser iguais!")
+        return data
