@@ -26,8 +26,8 @@ from .views import (home_page,
                     contact_page, 
                     login_page, 
                     register_page,
-                    ProductFeatureListView,
-                    ProductFeatureDetailView)
+                    ProductFeaturedListView,
+                    ProductFeaturedDetailView)
 
 urlpatterns = [
 	path('', home_page),
@@ -35,6 +35,8 @@ urlpatterns = [
 	path('contact/', contact_page),
     path('login/', login_page),
     path('register/', register_page),
+    path('featured/', ProductFeaturedListView.as_view()),
+    path('featured/<int:pk>', ProductFeaturedListView.as_view()),
     path('products/', ProductListView.as_view()),
     path('products-fbv/', product_list_view),
     path('products/<int:pk>', ProductDetailView.as_view()),
