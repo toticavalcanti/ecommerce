@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailtView
+from django.views.generic import ListView, DetailView
 from django.shortcuts import render, get_object_or_404
 
 from .models import Product
@@ -21,12 +21,12 @@ def product_list_view(request):
     return render(request, "products/list.html", context)
 
 
-class ProductDetailView(DetailtView):
+class ProductDetailView(DetailView):
     queryset = Product.objects.all()
     template_name = "products/detail.html"
 
     def get_context_data(self, *args, **kwargs):
-        context = super(ProductListView, self).get_context_data(*args, **kwargs)
+        context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
         print(context)
         return context
 
