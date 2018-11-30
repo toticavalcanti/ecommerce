@@ -21,6 +21,9 @@ def upload_image_path(instance, filename):
     #return f"products/{new_filename}/{new_filename}" #syntax to python 3.6 and up
 
 class ProductManager(models.Manager):
+    def featured(self):
+        return self.get_queryset().filter(featured = True)
+
     def get_by_id(self, id):
         qs = self.get_queryset().filter(id = id)
         if qs.count() == 1:
