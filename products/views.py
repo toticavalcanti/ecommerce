@@ -14,12 +14,12 @@ class ProductFeaturedListView(ListView):
 
 
 class ProductFeaturedDetailView(DetailView):
-    #queryset = Product.objects.all()
+    queryset = Product.objects.all().featured()
     template_name = "products/featured-detail.html"
 
-    def get_queryset(self, *args, **kwargs):
-        request = self.request
-        return Product.objects.featured()
+    # def get_queryset(self, *args, **kwargs):
+    #     request = self.request
+    #     return Product.objects.featured()
 
 
 class ProductListView(ListView):
