@@ -21,6 +21,9 @@ def upload_image_path(instance, filename):
     #return f"products/{new_filename}/{new_filename}" #syntax to python 3.6 and up
 
 class ProductQuerySet(models.query.QuerySet):
+    def active(self):
+        return self.filter(active = True)
+
     def featured(self):
         return self.filter(featured = True, active = True)
 
